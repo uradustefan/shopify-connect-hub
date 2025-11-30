@@ -6,27 +6,21 @@ export const Navigation = () => {
 
   return (
     <>
-      {/* Fixed Frame Navigation */}
-      <div className="fixed inset-0 pointer-events-none z-40">
-        <div className="absolute top-0 left-0 right-0 h-12 bg-background border-b border-border pointer-events-auto">
-          <div className="h-full px-8 flex items-center justify-between">
-            <a href="/" className="flex items-center">
-              <span className="text-[42px] font-medium" style={{ fontFamily: 'Runalto, sans-serif', letterSpacing: '0.376em' }}>
-                GIVAORA
-              </span>
-            </a>
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="w-12 h-12 flex items-center justify-center"
-            >
-              <Menu className="w-6 h-6" />
-            </button>
-          </div>
+      {/* Fixed Navigation */}
+      <div className="fixed top-0 left-0 right-0 z-40 bg-background border-b border-border">
+        <div className="h-20 px-8 flex items-center justify-between">
+          <a href="/" className="flex items-center">
+            <span className="text-[42px] font-medium" style={{ fontFamily: 'Runalto, sans-serif', letterSpacing: '0.376em' }}>
+              GIVAORA
+            </span>
+          </a>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="w-12 h-12 flex items-center justify-center"
+          >
+            <Menu className="w-6 h-6" />
+          </button>
         </div>
-        
-        <div className="absolute top-0 bottom-0 left-0 w-12 bg-background border-r border-border" />
-        <div className="absolute top-0 bottom-0 right-0 w-12 bg-background border-l border-border" />
-        <div className="absolute bottom-0 left-0 right-0 h-12 bg-background border-t border-border" />
       </div>
 
       {/* Fullscreen Menu */}
