@@ -109,4 +109,29 @@ All colors MUST be HSL.
     opacity: 0;
     transform: translateY(60px);
   }
+
+  .gradient-logo {
+    background: linear-gradient(
+      90deg,
+      hsl(32, 81%, 19%) 0%,
+      hsl(45, 85%, 55%) 25%,
+      hsl(48, 98%, 78%) 50%,
+      hsl(45, 85%, 55%) 75%,
+      hsl(32, 81%, 19%) 100%
+    );
+    background-size: 200% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 3s ease-in-out infinite;
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
 }
