@@ -1,5 +1,4 @@
 import { Preloader } from "@/components/Preloader";
-import { CustomCursor } from "@/components/CustomCursor";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
@@ -13,7 +12,6 @@ const Index = () => {
   return (
     <div className="bg-background">
       <Preloader />
-      <CustomCursor />
       <ScrollProgress />
       <Navigation />
       <Hero />
