@@ -126,7 +126,7 @@ All colors MUST be HSL.
 
   .logo-reveal {
     animation: logo-slide-reveal 0.38s ease-out forwards;
-    animation-delay: 0.15s;
+    animation-delay: 2.85s;
     opacity: 0;
     transform: translateX(-40px);
   }
