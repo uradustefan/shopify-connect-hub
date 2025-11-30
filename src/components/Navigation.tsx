@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/givaora-logo.svg";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,8 +15,8 @@ export const Navigation = () => {
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <a href="/" className="flex items-center">
-            <img src={logo} alt="GIVAORA" className="h-10" />
+          <a href="/" className="text-3xl font-bold text-primary">
+            A.
           </a>
 
           {/* Desktop Navigation */}

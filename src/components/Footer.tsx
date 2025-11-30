@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import logo from "@/assets/givaora-logo.svg";
 
 export const Footer = () => {
   return (
@@ -12,8 +11,8 @@ export const Footer = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <img src={logo} alt="GIVAORA" className="h-12 mb-4" />
-            <p className="text-muted-foreground">givaora.com</p>
+            <h3 className="text-3xl font-bold mb-4 text-primary">A.</h3>
+            <p className="text-muted-foreground">ashley.com</p>
           </motion.div>
 
           <motion.div
@@ -70,7 +69,7 @@ export const Footer = () => {
           className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center"
         >
           <p className="text-muted-foreground text-sm">
-            © 2024 GIVAORA. All rights reserved.
+            © 2024 Ashley. All rights reserved.
           </p>
           <a 
             href="#" 
