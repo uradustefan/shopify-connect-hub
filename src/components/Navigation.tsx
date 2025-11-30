@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import logo from "@/assets/logo-givaora.svg";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,8 +11,8 @@ export const Navigation = () => {
       <div className="fixed inset-0 pointer-events-none z-40">
         <div className="absolute top-0 left-0 right-0 h-12 bg-background border-b border-border pointer-events-auto">
           <div className="h-full px-8 flex items-center justify-between">
-            <a href="/" className="text-[42px] font-medium leading-none text-primary">
-              A.
+            <a href="/" className="flex items-center">
+              <img src={logo} alt="GIVAORA" className="h-8" />
             </a>
             <button
               onClick={() => setIsOpen(!isOpen)}
