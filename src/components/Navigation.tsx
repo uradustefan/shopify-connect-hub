@@ -9,7 +9,7 @@ export const Navigation = () => {
       {/* Fixed Navigation */}
       <div className="fixed top-0 left-0 right-0 z-40 bg-background border-b border-border">
         <div className="h-20 px-8 flex items-center justify-between">
-          <a href="/" className="flex items-center">
+          <a href="/" className="flex items-center overflow-hidden">
             <span className="text-[42px] font-medium gradient-logo logo-reveal" style={{ fontFamily: 'Runalto, sans-serif', letterSpacing: '0.376em' }}>
               GIVAORA
             </span>
