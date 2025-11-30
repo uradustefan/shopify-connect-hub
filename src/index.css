@@ -113,26 +113,14 @@ All colors MUST be HSL.
   .gradient-logo {
     background: linear-gradient(
       90deg,
-      hsl(38, 60%, 45%) 0%,
-      hsl(45, 85%, 55%) 20%,
-      hsl(48, 98%, 78%) 40%,
-      hsl(45, 85%, 55%) 60%,
-      hsl(38, 60%, 45%) 80%,
-      hsl(45, 85%, 55%) 100%
+      hsl(35, 45%, 40%) 0%,
+      hsl(40, 65%, 50%) 25%,
+      hsl(45, 80%, 60%) 50%,
+      hsl(40, 65%, 50%) 75%,
+      hsl(35, 45%, 40%) 100%
     );
-    background-size: 200% 100%;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: gradient-shift 3s linear infinite;
-  }
-
-  @keyframes gradient-shift {
-    0% {
-      background-position: 0% 50%;
-    }
-    100% {
-      background-position: 200% 50%;
-    }
   }
 }
