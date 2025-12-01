@@ -21,6 +21,8 @@ export const Preloader = () => {
               duration: 0.5,
               onComplete: () => {
                 setHidePreloader(true);
+                // Anunță Navigation că preloader-ul s-a terminat
+                window.dispatchEvent(new CustomEvent('preloaderComplete'));
               },
             });
           }
@@ -44,7 +46,7 @@ export const Preloader = () => {
             animateBy="words"
             direction="top"
             onAnimationComplete={handleBlurTextComplete}
-            className="text-[28px] md:text-[48px] lg:text-[72px] font-normal text-foreground tracking-tight"
+            className="text-[22px] md:text-[38px] lg:text-[58px] font-normal text-foreground tracking-tight"
           />
         </div>
       </div>
