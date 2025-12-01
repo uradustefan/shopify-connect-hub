@@ -129,6 +129,11 @@ All colors MUST be HSL.
     -webkit-text-fill-color: transparent;
   }
 
+  .logo-hidden {
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+
 .logo-reveal {
   animation: logo-slide-reveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   opacity: 0;
