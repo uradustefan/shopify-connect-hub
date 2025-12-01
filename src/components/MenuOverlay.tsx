@@ -10,14 +10,16 @@ import {
   User, 
   DollarSign,
   Search,
-  Heart,
-  ShoppingCart,
   Truck,
   Instagram,
   Facebook,
   Mail,
   Phone
 } from 'lucide-react';
+import { useWishlistStore } from '@/stores/wishlistStore';
+import { useCartStore } from '@/stores/cartStore';
+import { WishlistDrawer } from './WishlistDrawer';
+import { CartDrawer } from './CartDrawer';
 
 interface MenuOverlayProps {
   navigate: (screenId: string, params?: any) => void;
@@ -92,8 +94,8 @@ const SUBMENUS: Record<string, Array<{ title: string; screenId?: string; id?: st
 export function MenuOverlay({ navigate, onClose }: MenuOverlayProps) {
   const [history, setHistory] = useState<string[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
-  const [wishlistCount] = useState(3);
-  const [cartCount] = useState(2);
+  const wishlistCount = useWishlistStore(state => state.items.length);
+  const cartCount = useCartStore(state => state.items.reduce((sum, item) => sum + item.quantity, 0));
 
   const activeSubmenuId = history.length > 0 ? history[history.length - 1] : null;
   const currentItems = activeSubmenuId ? SUBMENUS[activeSubmenuId] : MENU_STRUCTURE;
@@ -173,29 +175,9 @@ export function MenuOverlay({ navigate, onClose }: MenuOverlayProps) {
               </div>
               
               <div className="flex items-center gap-2">
-                <button 
-                  className="relative p-2 hover:bg-muted/20 rounded-full transition-colors"
-                  aria-label="Favorite"
-                >
-                  <Heart className="w-5 h-5 text-foreground" />
-                  {wishlistCount > 0 && (
-                    <span className="absolute -top-1 -right-1 w-4 h-4 bg-primary text-primary-foreground text-xs rounded-full flex items-center justify-center font-semibold">
-                      {wishlistCount}
-                    </span>
-                  )}
-                </button>
-                <button 
-                  className="relative p-2 hover:bg-muted/20 rounded-full transition-colors"
-                  aria-label="Coș"
-                >
-                  <ShoppingCart className="w-5 h-5 text-foreground" />
-                  {cartCount > 0 && (
-                    <span className="absolute -top-1 -right-1 w-4 h-4 bg-primary text-primary-foreground text-xs rounded-full flex items-center justify-center font-semibold">
-                      {cartCount}
-                    </span>
-                  )}
-                </button>
-                <button 
+                <WishlistDrawer />
+                <CartDrawer />
+                <button
                   onClick={onClose} 
                   className="p-2 hover:bg-muted/20 rounded-full transition-colors ml-1"
                   aria-label="Închide"

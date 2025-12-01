@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef } from "react";
-import { Menu, Heart } from "lucide-react";
+import { Menu } from "lucide-react";
 import { MenuOverlay } from "./MenuOverlay";
 import { CartDrawer } from "./CartDrawer";
+import { WishlistDrawer } from "./WishlistDrawer";
 import gsap from "gsap";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [wishlistCount] = useState(0);
   const logoRef = useRef<HTMLSpanElement>(null);
 
   // Mock navigate function - replace with actual router navigation
@@ -69,18 +69,10 @@ export const Navigation = () => {
           </a>
           
           <div className="flex items-center gap-2">
-            {/* Wishlist Icon */}
-            <button 
-              className="relative p-2 hover:bg-muted/20 rounded-full transition-colors hidden md:flex"
-              aria-label="Favorite"
-            >
-              <Heart className="w-5 h-5" />
-              {wishlistCount > 0 && (
-                <span className="absolute -top-1 -right-1 w-4 h-4 bg-primary text-primary-foreground text-xs rounded-full flex items-center justify-center font-semibold">
-                  {wishlistCount}
-                </span>
-              )}
-            </button>
+            {/* Wishlist Drawer */}
+            <div className="hidden md:flex">
+              <WishlistDrawer />
+            </div>
             
             {/* Cart Drawer */}
             <CartDrawer />
