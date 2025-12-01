@@ -1,29 +1,41 @@
 import { motion } from "framer-motion";
-
 export const Footer = () => {
-  return (
-    <footer className="bg-background text-foreground font-poppins border-t border-border">
+  return <footer className="bg-background text-foreground font-poppins border-t border-border">
       <div className="container mx-auto px-6 py-16">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.6
+        }} viewport={{
+          once: true
+        }}>
             <a href="/" className="flex items-center">
-              <span className="text-[32px] font-medium gradient-logo" style={{ fontFamily: 'Runalto, sans-serif', letterSpacing: '0.376em' }}>
+              <span className="text-[32px] font-medium gradient-logo" style={{
+              fontFamily: 'Runalto, sans-serif',
+              letterSpacing: '0.376em'
+            }}>
                 GIVAORA
               </span>
             </a>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.6,
+          delay: 0.1
+        }} viewport={{
+          once: true
+        }}>
             <h6 className="text-sm font-semibold mb-4 text-muted-foreground">Projects</h6>
             <ul className="space-y-2">
               <li><a href="#" className="text-foreground hover:text-primary transition-colors">Interior design studio</a></li>
@@ -33,12 +45,18 @@ export const Footer = () => {
             </ul>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.6,
+          delay: 0.2
+        }} viewport={{
+          once: true
+        }}>
             <h6 className="text-sm font-semibold mb-4 text-muted-foreground">Useful links</h6>
             <ul className="space-y-2">
               <li><a href="#" className="text-foreground hover:text-primary transition-colors">Privacy Policy</a></li>
@@ -48,12 +66,18 @@ export const Footer = () => {
             </ul>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.6,
+          delay: 0.3
+        }} viewport={{
+          once: true
+        }}>
             <h6 className="text-sm font-semibold mb-4 text-muted-foreground">Canada</h6>
             <p className="text-foreground mb-4">71 South Los Carneros Road, California</p>
             <p className="text-primary">+51 174 705 812</p>
@@ -64,24 +88,19 @@ export const Footer = () => {
           </motion.div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center"
-        >
-          <p className="text-muted-foreground text-sm">
-            © 2024 GIVAORA. All rights reserved.
-          </p>
-          <a 
-            href="#" 
-            className="text-primary hover:text-primary/80 transition-colors text-sm mt-4 md:mt-0"
-          >
-            Back to top ↑
-          </a>
+        <motion.div initial={{
+        opacity: 0
+      }} whileInView={{
+        opacity: 1
+      }} transition={{
+        duration: 0.6,
+        delay: 0.4
+      }} viewport={{
+        once: true
+      }} className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-muted-foreground text-sm">© 2025 GIVAORA. All rights reserved.</p>
+          <a href="#" className="text-primary hover:text-primary/80 transition-colors text-sm mt-4 md:mt-0">Inapoi SUS</a>
         </motion.div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
