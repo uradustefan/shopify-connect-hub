@@ -36,8 +36,8 @@ export const Navigation = () => {
     
     // Verificăm dacă suntem deja pe homepage
     if (window.location.pathname === '/') {
-      // Scroll to top
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // Refresh + scroll to top
+      window.location.reload();
     } else {
       // Navigăm la homepage
       window.location.href = '/';
