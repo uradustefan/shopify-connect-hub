@@ -26,21 +26,20 @@ interface MenuOverlayProps {
 
 const MENU_STRUCTURE = [
   { 
-    title: "Crăciun", 
-    id: "christmasSubmenu",
+    title: "Home", 
+    href: "/",
     icon: Gift 
   },
   { 
-    title: "Gift BOX", 
-    id: "giftBoxSubmenu",
-    icon: ShoppingBag
+    title: "Blog", 
+    href: "/blog",
+    icon: Star
   },
   { 
-    title: "Categorii Principale", 
-    id: "categoriesSubmenu",
-    icon: ChevronRight
+    title: "Contact", 
+    href: "/contact",
+    icon: Mail
   },
-  { title: "Blog", screenId: "blogList", icon: Star },
   { title: "Contul Meu", screenId: "accountDashboard", icon: User },
 ];
 
@@ -109,7 +108,10 @@ export function MenuOverlay({ navigate, onClose }: MenuOverlayProps) {
   }, [onClose]);
 
   const handleItemClick = (item: any) => {
-    if (item.screenId) {
+    if (item.href) {
+      window.location.href = item.href;
+      onClose();
+    } else if (item.screenId) {
       navigate(item.screenId, { title: item.title });
       onClose();
     } else if (item.id) {
@@ -126,8 +128,8 @@ export function MenuOverlay({ navigate, onClose }: MenuOverlayProps) {
   };
 
   const getSubmenuTitle = (id: string) => {
-    const parentItem = MENU_STRUCTURE.find(item => item.id === id) || 
-                       Object.values(SUBMENUS).flat().find(item => item.id === id);
+    const parentItem = MENU_STRUCTURE.find(item => 'id' in item && item.id === id) || 
+                       Object.values(SUBMENUS).flat().find(item => 'id' in item && item.id === id);
     return parentItem?.title || '';
   };
 
