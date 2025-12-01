@@ -131,7 +131,7 @@ All colors MUST be HSL.
 
   .logo-hidden {
     opacity: 0;
-    transform: translateX(-200px);
+    transform: translateX(-232px);
   }
 
 .logo-reveal {
@@ -143,7 +143,7 @@ All colors MUST be HSL.
   @keyframes logo-slide-reveal {
     0% {
       opacity: 0;
-      transform: translateX(-200px);
+      transform: translateX(-232px);
     }
     100% {
       opacity: 1;
