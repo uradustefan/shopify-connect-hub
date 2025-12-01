@@ -3,9 +3,12 @@ import { ScrollProgress } from "@/components/ScrollProgress";
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
-import { Services } from "@/components/Services";
-import { Team } from "@/components/Team";
-import { Testimonials } from "@/components/Testimonials";
+import { HowItWorks } from "@/components/HowItWorks";
+import { Features } from "@/components/Features";
+import { ForCreators } from "@/components/ForCreators";
+import { SocialGamification } from "@/components/SocialGamification";
+import { WhyGivaora } from "@/components/WhyGivaora";
+import { FinalCTA } from "@/components/FinalCTA";
 import { Footer } from "@/components/Footer";
 
 const Index = () => {
@@ -16,9 +19,12 @@ const Index = () => {
       <Navigation />
       <Hero />
       <About />
-      <Services />
-      <Team />
-      <Testimonials />
+      <HowItWorks />
+      <Features />
+      <ForCreators />
+      <SocialGamification />
+      <WhyGivaora />
+      <FinalCTA />
       <Footer />
     </div>
   );
