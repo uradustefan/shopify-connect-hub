@@ -1,6 +1,18 @@
 import { motion } from "framer-motion";
 export const Footer = () => {
-  return <footer className="bg-background text-foreground font-poppins border-t border-border">
+  return <footer className="bg-background text-foreground font-poppins">
+      {/* Linie animată */}
+      <motion.div
+        initial={{ x: "-100vw" }}
+        whileInView={{ x: 0 }}
+        transition={{
+          duration: 1.2,
+          ease: [0.16, 1, 0.3, 1], // power4.out equivalent
+        }}
+        viewport={{ once: true, margin: "-100px" }}
+        className="h-[1px] bg-border"
+      />
+      
       <div className="container mx-auto px-6 py-16">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <motion.div initial={{
