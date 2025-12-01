@@ -7,64 +7,24 @@ export const About = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-24 bg-background text-foreground font-poppins">
+    <section ref={ref} className="py-24 bg-background text-foreground">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center max-w-4xl mx-auto"
         >
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            Discover <br />
-            <span className="text-primary">Our Studio</span>
+          <h2 className="text-4xl md:text-6xl font-bold mb-8">
+            Ce este <span className="text-primary">GIVAORA</span>?
           </h2>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-6 text-muted-foreground"
-          >
-            <p className="text-lg leading-relaxed">
-              At our design studio, we are a collective of talented individuals ignited by our 
-              unwavering passion for transforming ideas into reality. With a harmonious blend of 
-              diverse backgrounds and a vast array of skill sets, we join forces to create compelling 
-              solutions for our esteemed clients.
-            </p>
-            <p className="text-lg leading-relaxed">
-              Collaboration is at the heart of what we do. Our team thrives on the synergy that arises 
-              when unique perspectives converge, fostering an environment of boundless creativity. By 
-              harnessing our collective expertise, we produce extraordinary results that consistently 
-              surpass expectations.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative"
-          >
-            <div className="aspect-square bg-muted rounded-sm overflow-hidden">
-              <div className="w-full h-full flex items-center justify-center text-6xl font-bold text-primary">
-                A.
-              </div>
-            </div>
-          </motion.div>
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-20 text-center"
-        >
-          <p className="text-2xl md:text-3xl font-semibold">
-            Professionals focused on helping your brand <br />
-            <span className="text-primary">grow and move forward.</span>
+          
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-6">
+            GIVAORA este o aplicație de gifting și social shopping unde poți crea cutii de cadouri personalizate, generate vizual în timp real. Alegi produsele, platforma îți construiește gift-ul, îți creează imaginea finală și îți oferă un text sau un video gata de share.
+          </p>
+          
+          <p className="text-base md:text-lg text-foreground leading-relaxed font-medium">
+            Este mai mult decât un shop – este un ecosistem în care utilizatorii, brandurile și creatorii construiesc împreună experiențe.
           </p>
         </motion.div>
       </div>
