@@ -7,23 +7,23 @@ import { CircleHelp, Store, ShoppingCart, Users } from "lucide-react";
 const problems = [
   {
     icon: CircleHelp,
-    title: "Oamenii nu știu ce cadouri să aleagă",
-    description: "Procesul de căutare a cadoului perfect poate dura ore întregi fără rezultate satisfăcătoare.",
+    title: "Alegerea cadourilor este complicată",
+    description: "Ore întregi de căutare fără rezultate satisfăcătoare",
   },
   {
     icon: Store,
-    title: "Magazinele mici nu au resurse pentru marketing",
-    description: "Business-urile locale nu au capacitatea de a-și prezenta produsele într-un mod atractiv și personalizat.",
+    title: "Magazinele locale sunt invizibile",
+    description: "Lipsa resurselor de marketing și prezentare profesională",
   },
   {
     icon: ShoppingCart,
-    title: "E-commerce-ul clasic nu oferă personalizare reală",
-    description: "Platformele tradiționale nu ajută utilizatorii să creeze experiențe unice și memorabile.",
+    title: "Shopping-ul generic nu personalizează",
+    description: "Platformele clasice nu ajută la crearea de experiențe unice",
   },
   {
     icon: Users,
-    title: "Creatorii au nevoie de instrumente simple",
-    description: "Generarea de conținut util și atractiv pentru social media necesită timp și resurse considerabile.",
+    title: "Conținutul cere timp și expertiză",
+    description: "Generarea de materiale vizuale necesită resurse mari",
   },
 ];
 
@@ -32,20 +32,22 @@ export const WhyGivaora = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-24 bg-secondary/30 text-foreground">
-      <div className="container mx-auto px-6">
+    <section ref={ref} className="py-32 bg-background text-foreground">
+      <div className="container mx-auto px-6 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-6xl font-bold mb-8">
-            De ce este nevoie de <span className="text-primary">GIVAORA</span>?
+          <span className="text-sm font-semibold text-primary uppercase tracking-wider mb-4 block">Soluția</span>
+          <h2 className="text-5xl md:text-6xl font-bold leading-tight mb-8">
+            De ce GIVAORA este <br />
+            <span className="text-primary">platforma viitorului</span>
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
           {problems.map((problem, index) => (
             <motion.div
               key={index}
@@ -53,17 +55,17 @@ export const WhyGivaora = () => {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
             >
-              <Card className="bg-background border-border hover:border-primary transition-all duration-300 h-full group">
-                <CardHeader>
-                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                    <problem.icon className="w-7 h-7 text-primary" />
+              <Card className="bg-secondary/30 border-border/50 hover:border-primary/50 transition-all duration-300 h-full group hover:shadow-lg hover:shadow-primary/5">
+                <CardHeader className="pb-4">
+                  <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                    <problem.icon className="w-8 h-8 text-primary" />
                   </div>
-                  <CardTitle className="text-xl font-bold group-hover:text-primary transition-colors">
+                  <CardTitle className="text-2xl font-bold group-hover:text-primary transition-colors">
                     {problem.title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-lg text-muted-foreground leading-relaxed">
                     {problem.description}
                   </p>
                 </CardContent>
@@ -76,11 +78,13 @@ export const WhyGivaora = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-center max-w-3xl mx-auto"
+          className="text-center max-w-4xl mx-auto"
         >
-          <p className="text-lg text-foreground font-medium leading-relaxed">
-            GIVAORA rezolvă toate aceste probleme combinând <span className="text-primary">AI + produse reale + generare vizuală + social sharing + marketplace</span>.
-          </p>
+          <div className="bg-primary/5 border border-primary/20 rounded-3xl p-8 md:p-12">
+            <p className="text-2xl md:text-3xl text-foreground font-bold leading-relaxed">
+              Combinăm <span className="text-primary">AI, marketplace local</span> și <span className="text-primary">social shopping</span> pentru experiențe complete de gifting
+            </p>
+          </div>
         </motion.div>
       </div>
     </section>

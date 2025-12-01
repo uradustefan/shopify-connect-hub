@@ -6,23 +6,23 @@ import { Sparkles, Gift, PlaySquare, ShoppingBag } from "lucide-react";
 const rewards = [
   {
     icon: Sparkles,
-    title: "Efecte vizuale",
-    description: "Deblochează filtre și efecte speciale pentru box-urile tale",
+    title: "Efecte premium",
+    description: "Filtre exclusive și efecte vizuale avansate",
   },
   {
     icon: Gift,
     title: "Cutii speciale",
-    description: "Accesează colecții exclusive și teme premium",
+    description: "Acces la colecții și teme premium",
   },
   {
     icon: PlaySquare,
-    title: "Template-uri video",
-    description: "Obține acces la șabloane video avansate",
+    title: "Video PRO",
+    description: "Template-uri video profesionale",
   },
   {
     icon: ShoppingBag,
-    title: "Extra coșuri de creat",
-    description: "Creează mai multe gift box-uri simultan",
+    title: "Capacitate extinsă",
+    description: "Creează multiple gift box-uri simultan",
   },
 ];
 
@@ -31,27 +31,27 @@ export const SocialGamification = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-24 bg-background text-foreground">
-      <div className="container mx-auto px-6">
+    <section ref={ref} className="py-32 bg-secondary/20 text-foreground">
+      <div className="container mx-auto px-6 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-6xl font-bold mb-8">
-            O aplicație <span className="text-primary">socială</span>, <br />
-            nu doar un magazin
+          <span className="text-sm font-semibold text-primary uppercase tracking-wider mb-4 block">Comunitate</span>
+          <h2 className="text-5xl md:text-6xl font-bold leading-tight mb-8">
+            Mai mult decât shopping
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-6">
-            Fiecare gift creat poate fi distribuit pe social media și devine parte dintr-un challenge. Utilizatorii câștigă puncte pentru cutii create, conexiuni, postări și interacțiuni.
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-4">
+            Distribuie creațiile tale, participă la challenge-uri și câștigă recompense
           </p>
-          <p className="text-base text-foreground max-w-2xl mx-auto font-medium">
-            Cu punctele pot debloca:
+          <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
+            Fiecare cutie creată te apropie de beneficii exclusive
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {rewards.map((reward, index) => (
             <motion.div
               key={index}
@@ -60,29 +60,18 @@ export const SocialGamification = () => {
               transition={{ duration: 0.8, delay: index * 0.1 }}
               className="text-center group"
             >
-              <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors duration-300">
-                <reward.icon className="w-10 h-10 text-primary" />
+              <div className="w-24 h-24 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                <reward.icon className="w-11 h-11 text-primary" />
               </div>
-              <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors">
+              <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
                 {reward.title}
               </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <p className="text-base text-muted-foreground leading-relaxed">
                 {reward.description}
               </p>
             </motion.div>
           ))}
         </div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-center"
-        >
-          <p className="text-base text-muted-foreground max-w-2xl mx-auto">
-            Acest sistem transformă gifting-ul într-o experiență distractivă și virală.
-          </p>
-        </motion.div>
       </div>
     </section>
   );
