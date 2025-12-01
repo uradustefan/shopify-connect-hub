@@ -1,48 +1,62 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import BlurText from "./BlurText";
+import { LogoAnimation } from "./LogoAnimation";
 
 export const Preloader = () => {
   const preloaderRef = useRef<HTMLDivElement>(null);
-  const percentRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
+  const [showLogo, setShowLogo] = useState(false);
+  const [hidePreloader, setHidePreloader] = useState(false);
 
-  useEffect(() => {
-    const preloader = preloaderRef.current;
-    const percent = percentRef.current;
+  const handleBlurTextComplete = () => {
+    // Fade out text-ul după animație
+    if (textRef.current) {
+      gsap.to(textRef.current, {
+        opacity: 0,
+        duration: 0.3,
+        onComplete: () => {
+          setShowLogo(true);
+        },
+      });
+    }
+  };
 
-    if (!preloader || !percent) return;
+  const handleLogoComplete = () => {
+    // Fade out preloader-ul complet
+    if (preloaderRef.current) {
+      gsap.to(preloaderRef.current, {
+        opacity: 0,
+        duration: 0.5,
+        onComplete: () => {
+          setHidePreloader(true);
+        },
+      });
+    }
+  };
 
-    let counter = 0;
-    const interval = setInterval(() => {
-      counter++;
-      percent.textContent = `${counter}%`;
-
-      if (counter === 100) {
-        clearInterval(interval);
-        
-        gsap.to(preloader, {
-          opacity: 0,
-          duration: 0.5,
-          delay: 0.3,
-          onComplete: () => {
-            preloader.style.display = "none";
-          },
-        });
-      }
-    }, 20);
-
-    return () => clearInterval(interval);
-  }, []);
+  if (hidePreloader) return null;
 
   return (
-    <div
-      ref={preloaderRef}
-      className="fixed inset-0 z-[9999] bg-background flex items-center justify-center"
-    >
-      <div className="text-center">
-        <div ref={percentRef} className="text-6xl font-medium text-foreground">
-          0%
-        </div>
+    <>
+      <div
+        ref={preloaderRef}
+        className="fixed inset-0 z-[9999] bg-background flex items-center justify-center"
+      >
+        {!showLogo && (
+          <div ref={textRef} className="text-center">
+            <BlurText
+              text="Create Connect Inspire"
+              delay={200}
+              animateBy="words"
+              direction="top"
+              onAnimationComplete={handleBlurTextComplete}
+              className="text-[28px] md:text-[48px] lg:text-[72px] font-normal text-foreground tracking-tight"
+            />
+          </div>
+        )}
       </div>
-    </div>
+      {showLogo && <LogoAnimation onComplete={handleLogoComplete} />}
+    </>
   );
 };

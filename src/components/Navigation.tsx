@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { Menu, ShoppingCart, Heart } from "lucide-react";
 import { MenuOverlay } from "./MenuOverlay";
+import { LogoAnimation } from "./LogoAnimation";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [cartCount] = useState(2);
   const [wishlistCount] = useState(3);
+  const [showLogoAnimation, setShowLogoAnimation] = useState(false);
 
   // Mock navigate function - replace with actual router navigation
   const handleNavigate = (screenId: string, params?: any) => {
@@ -13,12 +15,25 @@ export const Navigation = () => {
     // Add your actual navigation logic here
   };
 
+  const handleLogoClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    
+    // Verificăm dacă suntem deja pe homepage
+    if (window.location.pathname === '/') {
+      // Arătăm doar animația de logo
+      setShowLogoAnimation(true);
+    } else {
+      // Navigăm la homepage
+      window.location.href = '/';
+    }
+  };
+
   return (
     <>
       {/* Fixed Navigation */}
       <div className="fixed top-0 left-0 right-0 z-40 bg-background border-b border-border">
         <div className="h-20 px-8 flex items-center justify-between">
-          <a href="/" className="flex items-center overflow-hidden">
+          <a href="/" onClick={handleLogoClick} className="flex items-center overflow-hidden">
             <span className="text-[42px] font-medium gradient-logo logo-reveal" style={{ fontFamily: 'Runalto, sans-serif', letterSpacing: '0.376em' }}>
               GIVAORA
             </span>
@@ -69,6 +84,11 @@ export const Navigation = () => {
           navigate={handleNavigate}
           onClose={() => setIsOpen(false)}
         />
+      )}
+
+      {/* Logo Animation on Click */}
+      {showLogoAnimation && (
+        <LogoAnimation onComplete={() => setShowLogoAnimation(false)} />
       )}
     </>
   );
