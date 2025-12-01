@@ -1,5 +1,5 @@
 import { toast } from "sonner";
-import type { CartItem } from "@/stores/cartStore";
+import type { CartItem } from "@/types/shopify";
 
 const SHOPIFY_API_VERSION = '2025-07';
 const SHOPIFY_STORE_PERMANENT_DOMAIN = 'lovable-project-olnk6.myshopify.com';
