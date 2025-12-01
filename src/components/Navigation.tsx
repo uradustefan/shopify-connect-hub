@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import { Menu, ShoppingCart, Heart } from "lucide-react";
 import { MenuOverlay } from "./MenuOverlay";
+import { useNavigationContext } from "@/contexts/NavigationContext";
 import gsap from "gsap";
 
 export const Navigation = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const { isMenuOpen, setMenuOpen } = useNavigationContext();
   const [cartCount] = useState(2);
   const [wishlistCount] = useState(3);
   const logoRef = useRef<HTMLSpanElement>(null);
@@ -97,7 +98,7 @@ export const Navigation = () => {
             
             {/* Menu Button */}
             <button
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={() => setMenuOpen(!isMenuOpen)}
               className="w-12 h-12 flex items-center justify-center hover:bg-muted/20 rounded-full transition-colors"
               aria-label="Menu"
             >
@@ -108,10 +109,10 @@ export const Navigation = () => {
       </div>
 
       {/* Menu Overlay */}
-      {isOpen && (
+      {isMenuOpen && (
         <MenuOverlay 
           navigate={handleNavigate}
-          onClose={() => setIsOpen(false)}
+          onClose={() => setMenuOpen(false)}
         />
       )}
     </>
