@@ -11,8 +11,11 @@ export const Footer = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-3xl font-bold mb-4 text-primary">A.</h3>
-            <p className="text-muted-foreground">ashley.com</p>
+            <a href="/" className="flex items-center">
+              <span className="text-[32px] font-medium gradient-logo" style={{ fontFamily: 'Runalto, sans-serif', letterSpacing: '0.376em' }}>
+                GIVAORA
+              </span>
+            </a>
           </motion.div>
 
           <motion.div
