@@ -1,87 +1,48 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 
 export const Preloader = () => {
-  const [currentWord, setCurrentWord] = useState(0);
-  const [showAccent, setShowAccent] = useState(false);
-  const [isComplete, setIsComplete] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
-
-  const words = ["CREATE", "CONNECT", "CELEBRATE"];
+  const preloaderRef = useRef<HTMLDivElement>(null);
+  const percentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const wordDuration = 1200;
+    const preloader = preloaderRef.current;
+    const percent = percentRef.current;
 
-    const wordTimer = setInterval(() => {
-      setCurrentWord((prev) => {
-        if (prev < words.length - 1) return prev + 1;
-        clearInterval(wordTimer);
-        return prev;
-      });
-    }, wordDuration);
+    if (!preloader || !percent) return;
 
-    const accentTimer = setTimeout(() => {
-      setShowAccent(true);
-    }, words.length * wordDuration + 300);
+    let counter = 0;
+    const interval = setInterval(() => {
+      counter++;
+      percent.textContent = `${counter}%`;
 
-    const revealTimer = setTimeout(() => {
-      setShowAccent(false);
-      setIsComplete(true);
-    }, words.length * wordDuration + 600);
+      if (counter === 100) {
+        clearInterval(interval);
+        
+        gsap.to(preloader, {
+          opacity: 0,
+          duration: 0.5,
+          delay: 0.3,
+          onComplete: () => {
+            preloader.style.display = "none";
+          },
+        });
+      }
+    }, 20);
 
-    return () => {
-      clearInterval(wordTimer);
-      clearTimeout(accentTimer);
-      clearTimeout(revealTimer);
-    };
+    return () => clearInterval(interval);
   }, []);
 
-  if (!isVisible) return null;
-
   return (
-    <motion.div
-      initial={{ y: 0 }}
-      animate={{ y: isComplete ? "-100%" : 0 }}
-      transition={{
-        duration: 0.8,
-        ease: [0.76, 0, 0.24, 1],
-      }}
-      onAnimationComplete={() => {
-        if (isComplete) setIsVisible(false);
-      }}
-      className="fixed inset-0 z-[9999] bg-black flex items-center justify-center"
+    <div
+      ref={preloaderRef}
+      className="fixed inset-0 z-[9999] bg-background flex items-center justify-center"
     >
-      <div className="relative flex items-center justify-center">
-        <AnimatePresence mode="wait">
-          {!showAccent && !isComplete && (
-            <motion.span
-              key={words[currentWord]}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{
-                duration: 0.5,
-                ease: [0.4, 0, 0.2, 1],
-              }}
-              className="text-6xl md:text-8xl lg:text-9xl font-bold text-white tracking-tight"
-            >
-              {words[currentWord]}
-            </motion.span>
-          )}
-        </AnimatePresence>
-
-        <AnimatePresence>
-          {showAccent && (
-            <motion.div
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="w-5 h-5 bg-orange-500 absolute"
-            />
-          )}
-        </AnimatePresence>
+      <div className="text-center">
+        <div ref={percentRef} className="text-6xl font-medium text-foreground">
+          0%
+        </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
