@@ -40,13 +40,13 @@ export const SocialGamification = () => {
           className="text-center mb-20"
         >
           <span className="text-sm font-semibold text-primary uppercase tracking-wider mb-4 block">Comunitate</span>
-          <h2 className="text-5xl md:text-6xl font-bold leading-tight mb-8">
+          <h2 className="text-4xl md:text-6xl font-bold leading-tight mb-8">
             Mai mult decât shopping
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-4">
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-4">
             Distribuie creațiile tale, participă la challenge-uri și câștigă recompense
           </p>
-          <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
+          <p className="text-base text-foreground/80 max-w-2xl mx-auto">
             Fiecare cutie creată te apropie de beneficii exclusive
           </p>
         </motion.div>
@@ -63,7 +63,7 @@ export const SocialGamification = () => {
               <div className="w-24 h-24 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
                 <reward.icon className="w-11 h-11 text-primary" />
               </div>
-              <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+              <h3 className="text-lg font-bold mb-3 group-hover:text-primary transition-colors">
                 {reward.title}
               </h3>
               <p className="text-base text-muted-foreground leading-relaxed">

@@ -19,16 +19,16 @@ export const About = () => {
             <span className="text-sm font-semibold text-primary uppercase tracking-wider">Despre platformă</span>
           </div>
           
-          <h2 className="text-5xl md:text-6xl font-bold mb-12 text-center leading-tight">
+          <h2 className="text-4xl md:text-6xl font-bold mb-12 text-center leading-tight">
             Un ecosistem complet <br />pentru <span className="text-primary">gifting inteligent</span>
           </h2>
           
           <div className="space-y-8 text-center">
-            <p className="text-xl md:text-2xl text-foreground/90 leading-relaxed font-light">
+            <p className="text-lg md:text-2xl text-foreground/90 leading-relaxed font-light">
               GIVAORA este o aplicație de gifting și social shopping unde creezi cutii de cadouri personalizate, generate vizual în timp real
             </p>
             
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+            <p className="text-base text-muted-foreground leading-relaxed max-w-3xl mx-auto">
               Alegi produsele, platforma construiește gift-ul, generează imaginea finală și oferă conținut gata de distribuit pe social media
             </p>
           </div>

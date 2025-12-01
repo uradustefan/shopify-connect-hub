@@ -29,11 +29,11 @@ export const ForCreators = () => {
           className="text-center mb-20"
         >
           <span className="text-sm font-semibold text-primary uppercase tracking-wider mb-4 block">Pentru business</span>
-          <h2 className="text-5xl md:text-6xl font-bold leading-tight mb-8">
+          <h2 className="text-4xl md:text-6xl font-bold leading-tight mb-8">
             Platforma ta de <br />
             <span className="text-primary">vânzări inteligentă</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Transformă produsele în experiențe memorabile și ajunge la clienți noi prin tehnologie AI
           </p>
         </motion.div>
@@ -56,7 +56,7 @@ export const ForCreators = () => {
                 <div className="flex-shrink-0 w-7 h-7 rounded-full bg-primary/20 flex items-center justify-center mt-0.5">
                   <Check className="w-4 h-4 text-primary" strokeWidth={3} />
                 </div>
-                <p className="text-lg text-foreground font-medium leading-relaxed">{benefit}</p>
+                <p className="text-base text-foreground font-medium leading-relaxed">{benefit}</p>
               </motion.div>
             ))}
           </div>
