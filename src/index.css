@@ -129,27 +129,6 @@ All colors MUST be HSL.
     -webkit-text-fill-color: transparent;
   }
 
-  .logo-hidden {
-    opacity: 0;
-    transform: translateX(-232px);
-  }
-
-.logo-reveal {
-  animation: logo-slide-reveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  opacity: 0;
-  transform: translateX(-232px);
-}
-
-  @keyframes logo-slide-reveal {
-    0% {
-      opacity: 0;
-      transform: translateX(-232px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
 
   /* Menu overlay animations */
   .menu-drawer-enter {

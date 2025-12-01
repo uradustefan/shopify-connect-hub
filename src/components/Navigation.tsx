@@ -1,12 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Menu, ShoppingCart, Heart } from "lucide-react";
 import { MenuOverlay } from "./MenuOverlay";
+import gsap from "gsap";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [cartCount] = useState(2);
   const [wishlistCount] = useState(3);
-  const [logoAnimationClass, setLogoAnimationClass] = useState('logo-hidden');
+  const logoRef = useRef<HTMLSpanElement>(null);
 
   // Mock navigate function - replace with actual router navigation
   const handleNavigate = (screenId: string, params?: any) => {
@@ -15,19 +16,31 @@ export const Navigation = () => {
   };
 
   useEffect(() => {
-    // Verificăm dacă suntem pe homepage (are Preloader)
     const isHomepage = window.location.pathname === '/';
+    
+    // Setăm logo-ul invizibil inițial
+    if (logoRef.current) {
+      gsap.set(logoRef.current, { x: "-100vw", opacity: 0 });
+    }
+    
+    const animateLogo = () => {
+      if (logoRef.current) {
+        gsap.to(logoRef.current, {
+          x: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power4.out"
+        });
+      }
+    };
     
     if (isHomepage) {
       // Pe homepage, așteaptă preloader-ul
-      const handlePreloaderComplete = () => {
-        setLogoAnimationClass('logo-reveal');
-      };
-      window.addEventListener('preloaderComplete', handlePreloaderComplete);
-      return () => window.removeEventListener('preloaderComplete', handlePreloaderComplete);
+      window.addEventListener('preloaderComplete', animateLogo);
+      return () => window.removeEventListener('preloaderComplete', animateLogo);
     } else {
       // Pe alte pagini, animează imediat
-      setTimeout(() => setLogoAnimationClass('logo-reveal'), 100);
+      setTimeout(animateLogo, 100);
     }
   }, []);
 
@@ -50,7 +63,7 @@ export const Navigation = () => {
       <div className="fixed top-0 left-0 right-0 z-40 bg-background border-b border-border">
         <div className="h-20 px-8 flex items-center justify-between overflow-hidden">
           <a href="/" onClick={handleLogoClick} className="flex items-center">
-            <span className={`text-[42px] font-medium gradient-logo ${logoAnimationClass}`} style={{ fontFamily: 'Runalto, sans-serif', letterSpacing: '0.376em' }}>
+            <span ref={logoRef} className="text-[42px] font-medium gradient-logo" style={{ fontFamily: 'Runalto, sans-serif', letterSpacing: '0.376em' }}>
               GIVAORA
             </span>
           </a>
