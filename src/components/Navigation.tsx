@@ -1,8 +1,17 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, ShoppingCart, Heart } from "lucide-react";
+import { MenuOverlay } from "./MenuOverlay";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [cartCount] = useState(2);
+  const [wishlistCount] = useState(3);
+
+  // Mock navigate function - replace with actual router navigation
+  const handleNavigate = (screenId: string, params?: any) => {
+    console.log('Navigate to:', screenId, params);
+    // Add your actual navigation logic here
+  };
 
   return (
     <>
@@ -14,63 +23,52 @@ export const Navigation = () => {
               GIVAORA
             </span>
           </a>
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="w-12 h-12 flex items-center justify-center"
-          >
-            <Menu className="w-6 h-6" />
-          </button>
+          
+          <div className="flex items-center gap-2">
+            {/* Wishlist Icon */}
+            <button 
+              className="relative p-2 hover:bg-muted/20 rounded-full transition-colors hidden md:flex"
+              aria-label="Favorite"
+            >
+              <Heart className="w-5 h-5" />
+              {wishlistCount > 0 && (
+                <span className="absolute -top-1 -right-1 w-4 h-4 bg-primary text-primary-foreground text-xs rounded-full flex items-center justify-center font-semibold">
+                  {wishlistCount}
+                </span>
+              )}
+            </button>
+            
+            {/* Cart Icon */}
+            <button 
+              className="relative p-2 hover:bg-muted/20 rounded-full transition-colors hidden md:flex"
+              aria-label="Coș"
+            >
+              <ShoppingCart className="w-5 h-5" />
+              {cartCount > 0 && (
+                <span className="absolute -top-1 -right-1 w-4 h-4 bg-primary text-primary-foreground text-xs rounded-full flex items-center justify-center font-semibold">
+                  {cartCount}
+                </span>
+              )}
+            </button>
+            
+            {/* Menu Button */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="w-12 h-12 flex items-center justify-center hover:bg-muted/20 rounded-full transition-colors"
+              aria-label="Menu"
+            >
+              <Menu className="w-6 h-6" />
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* Fullscreen Menu */}
+      {/* Menu Overlay */}
       {isOpen && (
-        <div className="fixed inset-0 bg-background z-50 flex items-center justify-center">
-          <button
-            onClick={() => setIsOpen(false)}
-            className="absolute top-8 right-8 w-12 h-12 flex items-center justify-center"
-          >
-            <X className="w-6 h-6" />
-          </button>
-          
-          <nav className="text-center space-y-6">
-            <a
-              href="#"
-              onClick={() => setIsOpen(false)}
-              className="block text-6xl md:text-8xl font-medium hover:text-primary transition-colors"
-            >
-              Home
-            </a>
-            <a
-              href="#"
-              onClick={() => setIsOpen(false)}
-              className="block text-6xl md:text-8xl font-medium hover:text-primary transition-colors"
-            >
-              Projects
-            </a>
-            <a
-              href="#"
-              onClick={() => setIsOpen(false)}
-              className="block text-6xl md:text-8xl font-medium hover:text-primary transition-colors"
-            >
-              Services
-            </a>
-            <a
-              href="#"
-              onClick={() => setIsOpen(false)}
-              className="block text-6xl md:text-8xl font-medium hover:text-primary transition-colors"
-            >
-              Team
-            </a>
-            <a
-              href="#"
-              onClick={() => setIsOpen(false)}
-              className="block text-6xl md:text-8xl font-medium hover:text-primary transition-colors"
-            >
-              Contact
-            </a>
-          </nav>
-        </div>
+        <MenuOverlay 
+          navigate={handleNavigate}
+          onClose={() => setIsOpen(false)}
+        />
       )}
     </>
   );
