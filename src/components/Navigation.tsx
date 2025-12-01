@@ -1,13 +1,11 @@
 import { useState, useEffect } from "react";
 import { Menu, ShoppingCart, Heart } from "lucide-react";
 import { MenuOverlay } from "./MenuOverlay";
-import { LogoAnimation } from "./LogoAnimation";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [cartCount] = useState(2);
   const [wishlistCount] = useState(3);
-  const [showLogoAnimation, setShowLogoAnimation] = useState(false);
   const [logoAnimationClass, setLogoAnimationClass] = useState('');
 
   // Mock navigate function - replace with actual router navigation
@@ -38,8 +36,8 @@ export const Navigation = () => {
     
     // Verificăm dacă suntem deja pe homepage
     if (window.location.pathname === '/') {
-      // Arătăm doar animația de logo
-      setShowLogoAnimation(true);
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       // Navigăm la homepage
       window.location.href = '/';
@@ -102,11 +100,6 @@ export const Navigation = () => {
           navigate={handleNavigate}
           onClose={() => setIsOpen(false)}
         />
-      )}
-
-      {/* Logo Animation on Click */}
-      {showLogoAnimation && (
-        <LogoAnimation onComplete={() => setShowLogoAnimation(false)} />
       )}
     </>
   );
