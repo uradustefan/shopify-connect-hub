@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef } from "react";
-import { Menu, ShoppingCart, Heart } from "lucide-react";
+import { Menu, Heart } from "lucide-react";
 import { MenuOverlay } from "./MenuOverlay";
+import { CartDrawer } from "./CartDrawer";
 import gsap from "gsap";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [cartCount] = useState(2);
-  const [wishlistCount] = useState(3);
+  const [wishlistCount] = useState(0);
   const logoRef = useRef<HTMLSpanElement>(null);
 
   // Mock navigate function - replace with actual router navigation
@@ -82,18 +82,8 @@ export const Navigation = () => {
               )}
             </button>
             
-            {/* Cart Icon */}
-            <button 
-              className="relative p-2 hover:bg-muted/20 rounded-full transition-colors hidden md:flex"
-              aria-label="Coș"
-            >
-              <ShoppingCart className="w-5 h-5" />
-              {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 w-4 h-4 bg-primary text-primary-foreground text-xs rounded-full flex items-center justify-center font-semibold">
-                  {cartCount}
-                </span>
-              )}
-            </button>
+            {/* Cart Drawer */}
+            <CartDrawer />
             
             {/* Menu Button */}
             <button
