@@ -7,6 +7,7 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Calendar, Tag } from "lucide-react";
+import { PageTransition } from "@/components/PageTransition";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -89,8 +90,9 @@ const Blog = () => {
   }, []);
 
   return (
-    <div className="bg-background">
-      <Navigation />
+    <PageTransition>
+      <div className="bg-background">
+        <Navigation />
       
       {/* Banner */}
       <section ref={bannerRef} className="relative min-h-[60vh] flex items-center justify-center px-12 pt-32 pb-24">
@@ -254,8 +256,9 @@ const Blog = () => {
         </div>
       </section>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </PageTransition>
   );
 };
 
