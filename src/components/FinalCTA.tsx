@@ -18,12 +18,12 @@ export const FinalCTA = () => {
           transition={{ duration: 0.8 }}
           className="text-center max-w-5xl mx-auto"
         >
-          <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-10 leading-[1.05] tracking-tight">
+          <h2 className="text-4xl md:text-7xl lg:text-8xl font-bold mb-10 leading-[1.05] tracking-tight">
             Creează primul tău <br />
             <span className="text-primary">gift perfect</span>
           </h2>
           
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-14 leading-relaxed font-light">
+          <p className="text-lg md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-14 leading-relaxed font-light">
             Alegi. AI-ul creează. Tu distribui. <br />
             Totul în câteva secunde.
           </p>

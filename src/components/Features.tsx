@@ -51,10 +51,10 @@ export const Features = () => {
           className="text-center mb-20"
         >
           <span className="text-sm font-semibold text-primary uppercase tracking-wider mb-4 block">Caracteristici</span>
-          <h2 className="text-5xl md:text-6xl font-bold leading-tight mb-6">
+          <h2 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
             De ce GIVAORA
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base text-muted-foreground max-w-2xl mx-auto">
             Tehnologie avansată pentru experiențe de gifting memorabile
           </p>
         </motion.div>
@@ -72,12 +72,12 @@ export const Features = () => {
                   <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
                     <feature.icon className="w-8 h-8 text-primary" />
                   </div>
-                  <CardTitle className="text-xl font-bold group-hover:text-primary transition-colors">
+                  <CardTitle className="text-lg font-bold group-hover:text-primary transition-colors">
                     {feature.title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-base text-muted-foreground leading-relaxed">
                     {feature.description}
                   </p>
                 </CardContent>

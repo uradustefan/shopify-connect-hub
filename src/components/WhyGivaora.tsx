@@ -41,7 +41,7 @@ export const WhyGivaora = () => {
           className="text-center mb-20"
         >
           <span className="text-sm font-semibold text-primary uppercase tracking-wider mb-4 block">Soluția</span>
-          <h2 className="text-5xl md:text-6xl font-bold leading-tight mb-8">
+          <h2 className="text-4xl md:text-6xl font-bold leading-tight mb-8">
             De ce GIVAORA este <br />
             <span className="text-primary">platforma viitorului</span>
           </h2>
@@ -60,12 +60,12 @@ export const WhyGivaora = () => {
                   <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
                     <problem.icon className="w-8 h-8 text-primary" />
                   </div>
-                  <CardTitle className="text-2xl font-bold group-hover:text-primary transition-colors">
+                  <CardTitle className="text-xl font-bold group-hover:text-primary transition-colors">
                     {problem.title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-lg text-muted-foreground leading-relaxed">
+                  <p className="text-base text-muted-foreground leading-relaxed">
                     {problem.description}
                   </p>
                 </CardContent>
@@ -81,7 +81,7 @@ export const WhyGivaora = () => {
           className="text-center max-w-4xl mx-auto"
         >
           <div className="bg-primary/5 border border-primary/20 rounded-3xl p-8 md:p-12">
-            <p className="text-2xl md:text-3xl text-foreground font-bold leading-relaxed">
+            <p className="text-xl md:text-3xl text-foreground font-bold leading-relaxed">
               Combinăm <span className="text-primary">AI, marketplace local</span> și <span className="text-primary">social shopping</span> pentru experiențe complete de gifting
             </p>
           </div>

@@ -40,7 +40,7 @@ export const HowItWorks = () => {
           className="text-center mb-20"
         >
           <span className="text-sm font-semibold text-primary uppercase tracking-wider mb-4 block">Procesul</span>
-          <h2 className="text-5xl md:text-6xl font-bold leading-tight">
+          <h2 className="text-4xl md:text-6xl font-bold leading-tight">
             Cum funcționează
           </h2>
         </motion.div>
@@ -65,10 +65,10 @@ export const HowItWorks = () => {
                 </div>
               </div>
               <div className="flex-1 pt-3">
-                <h3 className="text-2xl md:text-3xl font-bold mb-3 group-hover:text-primary transition-colors">
+                <h3 className="text-xl md:text-3xl font-bold mb-3 group-hover:text-primary transition-colors">
                   {step.title}
                 </h3>
-                <p className="text-lg text-muted-foreground leading-relaxed">
+                <p className="text-base text-muted-foreground leading-relaxed">
                   {step.description}
                 </p>
               </div>

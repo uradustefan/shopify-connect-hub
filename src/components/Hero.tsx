@@ -30,12 +30,12 @@ export const Hero = () => {
   return (
     <section ref={heroRef} className="relative min-h-screen flex items-center justify-center px-6 md:px-12 pt-32 pb-24">
       <div className="container mx-auto text-center max-w-6xl">
-        <h1 className="mil-up text-[42px] md:text-[72px] lg:text-[96px] font-bold leading-[1.05] mb-8 tracking-tight">
+        <h1 className="mil-up text-[36px] md:text-[72px] lg:text-[96px] font-bold leading-[1.05] mb-8 tracking-tight">
           Creează cadoul perfect <br />
           <span className="text-primary">în câteva secunde</span>
         </h1>
         
-        <p className="mil-up text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto mb-16 leading-relaxed font-light">
+        <p className="mil-up text-base md:text-xl text-foreground/80 max-w-2xl mx-auto mb-16 leading-relaxed font-light">
           AI personalizat care transformă selecția ta de produse într-un gift box vizual impresionant, gata de distribuit
         </p>
 
