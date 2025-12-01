@@ -6,7 +6,7 @@ export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [cartCount] = useState(2);
   const [wishlistCount] = useState(3);
-  const [logoAnimationClass, setLogoAnimationClass] = useState('');
+  const [logoAnimationClass, setLogoAnimationClass] = useState('logo-hidden');
 
   // Mock navigate function - replace with actual router navigation
   const handleNavigate = (screenId: string, params?: any) => {
@@ -27,7 +27,7 @@ export const Navigation = () => {
       return () => window.removeEventListener('preloaderComplete', handlePreloaderComplete);
     } else {
       // Pe alte pagini, animează imediat
-      setLogoAnimationClass('logo-reveal');
+      setTimeout(() => setLogoAnimationClass('logo-reveal'), 100);
     }
   }, []);
 
