@@ -72,7 +72,7 @@ export const Footer = () => {
           className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center"
         >
           <p className="text-muted-foreground text-sm">
-            © 2024 Ashley. All rights reserved.
+            © 2024 GIVAORA. All rights reserved.
           </p>
           <a 
             href="#" 
