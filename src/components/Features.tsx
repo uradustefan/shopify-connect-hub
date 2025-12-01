@@ -7,33 +7,33 @@ import { ImageIcon, Bot, Shuffle, Video, Trophy, Store } from "lucide-react";
 const features = [
   {
     icon: ImageIcon,
-    title: "Dynamic Visual Gift Generator",
-    description: "Imagine realistă generată automat pentru fiecare cutie creată.",
+    title: "Generator vizual dinamic",
+    description: "Fiecare cutie devine o imagine realistă, generată automat și gata de distribuit",
   },
   {
     icon: Bot,
-    title: "Gift Builder cu AI",
-    description: "Recomandări în funcție de ocazie, relație și buget.",
+    title: "AI personalizat",
+    description: "Recomandări bazate pe ocazie, relația cu destinatarul și bugetul tău",
   },
   {
     icon: Shuffle,
-    title: "Randomizer tematic",
-    description: "Idei rapide: \"Gift pentru mama\", \"Sub 50 lei\", \"Pentru prietenul cel mai bun\".",
+    title: "Idei în câteva click-uri",
+    description: "Randomizer tematic pentru inspirație rapidă și rezultate instant",
   },
   {
     icon: Video,
-    title: "Video Templates",
-    description: "Mini-clipuri gata de postat, generate automat.",
+    title: "Conținut video automat",
+    description: "Template-uri video pentru social media, generate pe loc",
   },
   {
     icon: Trophy,
-    title: "Gamificare & puncte",
-    description: "Creezi, deblochezi cutii speciale, câștigi recompense.",
+    title: "Sistem de recompense",
+    description: "Gamificare completă: creezi, deblochezi, câștigi puncte și premii",
   },
   {
     icon: Store,
-    title: "Marketplace conectat",
-    description: "Branduri, magazine și creatori își pot încărca produsele și ritualurile.",
+    title: "Marketplace integrat",
+    description: "Acces direct la branduri locale și creatori de conținut verificați",
   },
 ];
 
@@ -42,20 +42,24 @@ export const Features = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-24 bg-background text-foreground">
-      <div className="container mx-auto px-6">
+    <section ref={ref} className="py-32 bg-secondary/20 text-foreground">
+      <div className="container mx-auto px-6 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            Ce face GIVAORA <span className="text-primary">diferit</span>
+          <span className="text-sm font-semibold text-primary uppercase tracking-wider mb-4 block">Caracteristici</span>
+          <h2 className="text-5xl md:text-6xl font-bold leading-tight mb-6">
+            De ce GIVAORA
           </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Tehnologie avansată pentru experiențe de gifting memorabile
+          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {features.map((feature, index) => (
             <motion.div
               key={index}
@@ -63,17 +67,17 @@ export const Features = () => {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
             >
-              <Card className="bg-secondary border-border hover:border-primary transition-all duration-300 group cursor-pointer h-full">
-                <CardHeader>
-                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                    <feature.icon className="w-7 h-7 text-primary" />
+              <Card className="bg-background/60 backdrop-blur border-border/50 hover:border-primary/50 transition-all duration-300 group cursor-pointer h-full hover:shadow-lg hover:shadow-primary/5">
+                <CardHeader className="pb-4">
+                  <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                    <feature.icon className="w-8 h-8 text-primary" />
                   </div>
                   <CardTitle className="text-xl font-bold group-hover:text-primary transition-colors">
                     {feature.title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground text-base leading-relaxed">
+                  <p className="text-muted-foreground leading-relaxed">
                     {feature.description}
                   </p>
                 </CardContent>

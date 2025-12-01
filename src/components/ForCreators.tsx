@@ -5,12 +5,12 @@ import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 
 const benefits = [
-  "Sistem complet de încărcare produse și colecții",
-  "Imagini generate automat pentru box-uri",
-  "Șabloane video și texte pentru social media",
-  "Vizibilitate în recomandările AI",
-  "Monetizare prin fee per box",
-  "Soluție de gifting \"powered by GIVAORA\"",
+  "Dashboard complet pentru gestionarea produselor",
+  "Imagini și video generate automat",
+  "Conținut optimizat pentru social media",
+  "Vizibilitate crescută prin AI",
+  "Monetizare transparentă",
+  "Integrare brand personalizată",
 ];
 
 export const ForCreators = () => {
@@ -18,20 +18,23 @@ export const ForCreators = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-24 bg-secondary/30 text-foreground">
-      <div className="container mx-auto px-6">
+    <section ref={ref} className="py-32 bg-background text-foreground relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5 pointer-events-none" />
+      
+      <div className="container mx-auto px-6 md:px-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-6xl font-bold mb-8">
-            Pentru creatori, <br />
-            <span className="text-primary">branduri și magazine</span>
+          <span className="text-sm font-semibold text-primary uppercase tracking-wider mb-4 block">Pentru business</span>
+          <h2 className="text-5xl md:text-6xl font-bold leading-tight mb-8">
+            Platforma ta de <br />
+            <span className="text-primary">vânzări inteligentă</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">
-            GIVAORA nu este doar pentru utilizatori. Este o platformă în care business-urile își pot transforma produsele în experiențe.
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Transformă produsele în experiențe memorabile și ajunge la clienți noi prin tehnologie AI
           </p>
         </motion.div>
 
@@ -39,7 +42,7 @@ export const ForCreators = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="max-w-3xl mx-auto mb-12"
+          className="max-w-4xl mx-auto mb-16"
         >
           <div className="grid md:grid-cols-2 gap-6">
             {benefits.map((benefit, index) => (
@@ -48,12 +51,12 @@ export const ForCreators = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
                 transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                className="flex gap-3 items-start"
+                className="flex gap-4 items-start bg-secondary/30 p-6 rounded-2xl hover:bg-secondary/50 transition-colors"
               >
-                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center mt-1">
-                  <Check className="w-4 h-4 text-primary" />
+                <div className="flex-shrink-0 w-7 h-7 rounded-full bg-primary/20 flex items-center justify-center mt-0.5">
+                  <Check className="w-4 h-4 text-primary" strokeWidth={3} />
                 </div>
-                <p className="text-base text-foreground leading-relaxed">{benefit}</p>
+                <p className="text-lg text-foreground font-medium leading-relaxed">{benefit}</p>
               </motion.div>
             ))}
           </div>
@@ -65,8 +68,8 @@ export const ForCreators = () => {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="text-center"
         >
-          <Button variant="default" size="lg">
-            Aplică ca brand / creator
+          <Button variant="default" size="lg" className="min-w-[280px]">
+            Aplică acum
           </Button>
         </motion.div>
       </div>
