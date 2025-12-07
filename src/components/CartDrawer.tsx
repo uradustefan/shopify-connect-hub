@@ -51,7 +51,7 @@ export const CartDrawer = () => {
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
         <button 
-          className="relative p-2 hover:bg-muted/20 rounded-full transition-colors hidden md:flex"
+          className="relative p-2 hover:bg-muted/20 rounded-full transition-colors flex"
           aria-label="Coș de cumpărături"
         >
           <ShoppingCart className="w-5 h-5" />
