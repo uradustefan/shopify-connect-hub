@@ -15,6 +15,7 @@ import CreatorProfile from "./pages/CreatorProfile";
 import Dashboard from "./pages/Dashboard";
 import BoxBuilder from "./pages/BoxBuilder";
 import Feed from "./pages/Feed";
+import BoxDetail from "./pages/BoxDetail";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +33,7 @@ const AppRoutes = () => {
         <Route path="/products" element={<Products />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/feed" element={<Feed />} />
+        <Route path="/box/:id" element={<BoxDetail />} />
         <Route path="/creator/:username" element={<CreatorProfile />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/create-box" element={<BoxBuilder />} />
