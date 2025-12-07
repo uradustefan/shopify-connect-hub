@@ -9,12 +9,6 @@ export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const logoRef = useRef<HTMLSpanElement>(null);
 
-  // Mock navigate function - replace with actual router navigation
-  const handleNavigate = (screenId: string, params?: any) => {
-    console.log('Navigate to:', screenId, params);
-    // Add your actual navigation logic here
-  };
-
   useEffect(() => {
     const isHomepage = window.location.pathname === '/';
     
@@ -92,7 +86,6 @@ export const Navigation = () => {
       {/* Menu Overlay */}
       {isOpen && (
         <MenuOverlay 
-          navigate={handleNavigate}
           onClose={() => setIsOpen(false)}
         />
       )}
