@@ -12,6 +12,8 @@ import Auth from "./pages/Auth";
 import Products from "./pages/Products";
 import Pricing from "./pages/Pricing";
 import CreatorProfile from "./pages/CreatorProfile";
+import Dashboard from "./pages/Dashboard";
+import BoxBuilder from "./pages/BoxBuilder";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +31,8 @@ const AppRoutes = () => {
         <Route path="/products" element={<Products />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/creator/:username" element={<CreatorProfile />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/create-box" element={<BoxBuilder />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>
