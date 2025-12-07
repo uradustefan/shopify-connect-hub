@@ -14,16 +14,270 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      gift_boxes: {
+        Row: {
+          box_type: string
+          created_at: string | null
+          creator_id: string
+          id: string
+          image_url: string | null
+          is_published: boolean | null
+          name: string
+          orders_count: number | null
+          products: Json | null
+          total_value: number | null
+          updated_at: string | null
+        }
+        Insert: {
+          box_type: string
+          created_at?: string | null
+          creator_id: string
+          id?: string
+          image_url?: string | null
+          is_published?: boolean | null
+          name: string
+          orders_count?: number | null
+          products?: Json | null
+          total_value?: number | null
+          updated_at?: string | null
+        }
+        Update: {
+          box_type?: string
+          created_at?: string | null
+          creator_id?: string
+          id?: string
+          image_url?: string | null
+          is_published?: boolean | null
+          name?: string
+          orders_count?: number | null
+          products?: Json | null
+          total_value?: number | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      moments: {
+        Row: {
+          created_at: string | null
+          creator_id: string
+          id: string
+          title: string
+          video_thumbnail: string | null
+          video_url: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          creator_id: string
+          id?: string
+          title: string
+          video_thumbnail?: string | null
+          video_url?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          creator_id?: string
+          id?: string
+          title?: string
+          video_thumbnail?: string | null
+          video_url?: string | null
+        }
+        Relationships: []
+      }
+      orders: {
+        Row: {
+          buyer_id: string | null
+          commission_amount: number | null
+          created_at: string | null
+          creator_id: string | null
+          gift_box_id: string | null
+          id: string
+          status: string | null
+          total_amount: number
+        }
+        Insert: {
+          buyer_id?: string | null
+          commission_amount?: number | null
+          created_at?: string | null
+          creator_id?: string | null
+          gift_box_id?: string | null
+          id?: string
+          status?: string | null
+          total_amount: number
+        }
+        Update: {
+          buyer_id?: string | null
+          commission_amount?: number | null
+          created_at?: string | null
+          creator_id?: string | null
+          gift_box_id?: string | null
+          id?: string
+          status?: string | null
+          total_amount?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "orders_gift_box_id_fkey"
+            columns: ["gift_box_id"]
+            isOneToOne: false
+            referencedRelation: "gift_boxes"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      products: {
+        Row: {
+          category: string | null
+          created_at: string | null
+          description: string | null
+          id: string
+          image_url: string | null
+          in_stock: boolean | null
+          name: string
+          price: number
+          tags: string[] | null
+        }
+        Insert: {
+          category?: string | null
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          in_stock?: boolean | null
+          name: string
+          price: number
+          tags?: string[] | null
+        }
+        Update: {
+          category?: string | null
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          in_stock?: boolean | null
+          name?: string
+          price?: number
+          tags?: string[] | null
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          bio: string | null
+          boxes_sold: number | null
+          created_at: string | null
+          email: string | null
+          followers_count: number | null
+          full_name: string | null
+          id: string
+          is_creator: boolean | null
+          plan: Database["public"]["Enums"]["user_plan"] | null
+          plan_expires_at: string | null
+          rating: number | null
+          updated_at: string | null
+          username: string | null
+        }
+        Insert: {
+          avatar_url?: string | null
+          bio?: string | null
+          boxes_sold?: number | null
+          created_at?: string | null
+          email?: string | null
+          followers_count?: number | null
+          full_name?: string | null
+          id: string
+          is_creator?: boolean | null
+          plan?: Database["public"]["Enums"]["user_plan"] | null
+          plan_expires_at?: string | null
+          rating?: number | null
+          updated_at?: string | null
+          username?: string | null
+        }
+        Update: {
+          avatar_url?: string | null
+          bio?: string | null
+          boxes_sold?: number | null
+          created_at?: string | null
+          email?: string | null
+          followers_count?: number | null
+          full_name?: string | null
+          id?: string
+          is_creator?: boolean | null
+          plan?: Database["public"]["Enums"]["user_plan"] | null
+          plan_expires_at?: string | null
+          rating?: number | null
+          updated_at?: string | null
+          username?: string | null
+        }
+        Relationships: []
+      }
+      rituals: {
+        Row: {
+          created_at: string | null
+          creator_id: string
+          description: string | null
+          id: string
+          image_url: string | null
+          steps: Json | null
+          title: string
+        }
+        Insert: {
+          created_at?: string | null
+          creator_id: string
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          steps?: Json | null
+          title: string
+        }
+        Update: {
+          created_at?: string | null
+          creator_id?: string
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          steps?: Json | null
+          title?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string | null
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "moderator" | "user" | "creator"
+      user_plan: "basic" | "legend" | "royal"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +404,9 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "moderator", "user", "creator"],
+      user_plan: ["basic", "legend", "royal"],
+    },
   },
 } as const
