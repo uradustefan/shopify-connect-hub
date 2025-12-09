@@ -2,68 +2,50 @@ import { MenuItem } from '@/types/giftbox';
 
 export const menuHamburgerRO: MenuItem[] = [
   {
-    title: "Crăciun",
-    children: [
-      {
-        title: "Gift BOX",
-        children: [
-          { title: "Gift BOX de Crăciun", tag: "craciun" },
-          { title: "Gift BOX cu Vin", tag: "vin" },
-          {
-            title: "GIFT BOX după Preț",
-            children: [
-              { title: "de la 150 RON", tag: "pret-150" },
-              { title: "de la 250 RON", tag: "pret-250" },
-              { title: "de la 500 RON", tag: "pret-500" },
-              { title: "de la 1000 RON", tag: "pret-1000" },
-            ]
-          },
-        ]
-      },
-      {
-        title: "Cadouri de Crăciun",
-        children: [
-          { title: "Pentru Ea", tag: "pentru-ea" },
-          { title: "Pentru El", tag: "pentru-el" },
-          { title: "Pentru Cei Mici", tag: "pentru-copii" },
-          { title: "Pentru Gurmanzi", tag: "gurmand" },
-          { title: "Cadouri Personalizate", tag: "personalizat" },
-          { title: "Carduri Cadou", tag: "card-cadou" },
-        ]
-      }
-    ]
+    title: "Acasă",
+    href: "/"
   },
   {
     title: "Gift BOX-uri",
     children: [
-      {
-        title: "Toate Gift BOX-urile",
-        children: [
-          { title: "Creează-ți Propriul Gift BOX", href: "/create-box" },
-          { title: "Gift BOX-uri cu Vin", tag: "vin" },
-          { title: "Gift BOX-uri Fără Alcool", tag: "fara-alcool" },
-          { title: "Cutii Cadou", tag: "cutie-cadou" },
-        ]
-      },
-      {
-        title: "Gift BOX-uri după Ocazie",
-        children: [
-          { title: "Crăciun", tag: "craciun" },
-          { title: "Zile de Naștere", tag: "zi-nastere" },
-          { title: "Corporate", tag: "corporate" },
-          { title: "Valentines Day", tag: "valentines" },
-          { title: "Ziua Mamei", tag: "ziua-mamei" },
-        ]
-      },
-      {
-        title: "Gift BOX-uri după Preț",
-        children: [
-          { title: "Sub 150 RON", tag: "pret-150" },
-          { title: "Sub 250 RON", tag: "pret-250" },
-          { title: "Sub 500 RON", tag: "pret-500" },
-          { title: "Peste 1000 RON", tag: "pret-1000" },
-        ]
-      }
+      { title: "Toate Gift BOX-urile", href: "/products" },
+      { title: "Creează-ți Propriul Gift BOX", href: "/create-box" },
+      { title: "Gift BOX-uri cu Vin", tag: "vin" },
+      { title: "Gift BOX-uri Fără Alcool", tag: "fara-alcool" },
+      { title: "Cutii Cadou", tag: "cutie-cadou" },
+    ]
+  },
+  {
+    title: "Destinatar",
+    children: [
+      { title: "Pentru Ea", tag: "pentru-ea" },
+      { title: "Pentru El", tag: "pentru-el" },
+      { title: "Pentru Copii", tag: "pentru-copii" },
+      { title: "Pentru Bebeluși", tag: "pentru-bebelusi" },
+      { title: "Pentru Colegi", tag: "pentru-colegi" },
+      { title: "Pentru Gurmanzi", tag: "pentru-gurmanzi" },
+      { title: "Pentru Familie", tag: "pentru-familie" },
+      { title: "Pentru Cuplu", tag: "pentru-cuplu" },
+    ]
+  },
+  {
+    title: "Ocazie",
+    children: [
+      { title: "Crăciun", tag: "craciun" },
+      { title: "Aniversare", tag: "aniversare" },
+      { title: "Onomastică", tag: "onomastica" },
+      { title: "Familie", tag: "familie" },
+      { title: "Secret Santa", tag: "secret-santa" },
+      { title: "Corporate Gifts", tag: "corporate-gifts" },
+    ]
+  },
+  {
+    title: "Buget",
+    children: [
+      { title: "Sub 150 lei", tag: "buget" },
+      { title: "150–250 lei", tag: "standard" },
+      { title: "250–450 lei (Premium)", tag: "premium" },
+      { title: "Peste 450 lei (Luxury)", tag: "luxury" },
     ]
   },
   {
