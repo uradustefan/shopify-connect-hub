@@ -10,6 +10,7 @@ import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import Auth from "./pages/Auth";
 import Products from "./pages/Products";
+import ProductDetail from "./pages/ProductDetail";
 import Pricing from "./pages/Pricing";
 import CreatorProfile from "./pages/CreatorProfile";
 import Dashboard from "./pages/Dashboard";
@@ -31,6 +32,7 @@ const AppRoutes = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/auth" element={<Auth />} />
         <Route path="/products" element={<Products />} />
+        <Route path="/product/:handle" element={<ProductDetail />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/feed" element={<Feed />} />
         <Route path="/box/:id" element={<BoxDetail />} />
