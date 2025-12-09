@@ -50,6 +50,8 @@ const STOREFRONT_QUERY = `
           title
           description
           handle
+          tags
+          productType
           priceRange {
             minVariantPrice {
               amount
@@ -86,6 +88,56 @@ const STOREFRONT_QUERY = `
             values
           }
         }
+      }
+    }
+  }
+`;
+
+// Query for single product by handle
+const PRODUCT_BY_HANDLE_QUERY = `
+  query GetProductByHandle($handle: String!) {
+    productByHandle(handle: $handle) {
+      id
+      title
+      description
+      descriptionHtml
+      handle
+      tags
+      productType
+      priceRange {
+        minVariantPrice {
+          amount
+          currencyCode
+        }
+      }
+      images(first: 10) {
+        edges {
+          node {
+            url
+            altText
+          }
+        }
+      }
+      variants(first: 20) {
+        edges {
+          node {
+            id
+            title
+            price {
+              amount
+              currencyCode
+            }
+            availableForSale
+            selectedOptions {
+              name
+              value
+            }
+          }
+        }
+      }
+      options {
+        name
+        values
       }
     }
   }
@@ -136,8 +188,12 @@ const CART_CREATE_MUTATION = `
   }
 `;
 
-export async function fetchProducts(first: number = 20, query?: string) {
+export async function fetchProducts(first: number = 50, query?: string) {
   return storefrontApiRequest(STOREFRONT_QUERY, { first, query });
+}
+
+export async function fetchProductByHandle(handle: string) {
+  return storefrontApiRequest(PRODUCT_BY_HANDLE_QUERY, { handle });
 }
 
 export async function createStorefrontCheckout(items: CartItem[]): Promise<string> {

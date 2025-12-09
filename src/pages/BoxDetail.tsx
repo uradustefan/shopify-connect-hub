@@ -145,6 +145,7 @@ const BoxDetail = () => {
             title: p.product.name,
             description: p.product.description,
             handle: p.product.id,
+            tags: [] as string[],
             priceRange: {
               minVariantPrice: {
                 amount: String(p.product.price),
